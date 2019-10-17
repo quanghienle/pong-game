@@ -9,13 +9,22 @@ let init = function() {
 function Score(id,position){
   init.call(this);
   this.playerId = id;
-  this.status.shape = "text";
-  this.status.color = "#FF0000";
-  this.status.font = "Arial";
-  this.status.textAlign = "center";
-  this.status.size = CUSTOMIZATION.SCORE.SIZE;
-  this.status.text = undefined;
-  this.status.y = CUSTOMIZATION.SCORE.Y;
+  // this.status.shape = "text";
+  // this.status.color = CUSTOMIZATION.SCORE.COLOR;
+  // this.status.font = CUSTOMIZATION.SCORE.FONT;
+  // this.status.textAlign = "center";
+  // this.status.size = CUSTOMIZATION.SCORE.SIZE;
+  // this.status.text = undefined;
+  // this.status.y = CUSTOMIZATION.SCORE.Y;
+  this.status = {
+    shape : "text",
+    color : CUSTOMIZATION.SCORE.COLOR,
+    font : CUSTOMIZATION.SCORE.FONT,
+    textAlign : "center",
+    size : CUSTOMIZATION.SCORE.SIZE,
+    text : undefined,
+    y : CUSTOMIZATION.SCORE.Y
+  };
   switch(position){
     case "LEFT":
       this.status.x = CUSTOMIZATION.WIDTH/2-CUSTOMIZATION.SCORE.GAP;

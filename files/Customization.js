@@ -6,13 +6,17 @@ const CUSTOMIZATION = {
   BORDER_WIDTH : 10,
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
+    SHAPE : "rectangle",
     WIDTH : 15,
     HEIGHT : 80,
-    GAP : 20
+    GAP : 20,
+    COLOR : "#778899"
   },
   BALL : {
+    SHAPE : "rectangle",
     WIDTH : 15,
     HEIGHT : 15,
+    COLOR : "#000000",
   },
   NET : {
     WIDTH : 6
@@ -20,7 +24,9 @@ const CUSTOMIZATION = {
   SCORE : {
     Y : 50,
     SIZE : 30,
-    GAP : 50
+    GAP : 50,
+    FONT : "Arial",
+    COLOR : "#FF0000"
   }
 };
 

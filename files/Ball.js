@@ -17,12 +17,12 @@ function Ball(player0Id, player1Id){
   this.dy = 1;
   this.speed = 2;
   this.move = true;
-  this.status.shape = "rectangle";
+  this.status.shape = CUSTOMIZATION.BALL.SHAPE;
   this.status.x = (CUSTOMIZATION.WIDTH-CUSTOMIZATION.BALL.WIDTH)/2;
   this.status.y = (CUSTOMIZATION.HEIGHT-CUSTOMIZATION.BALL.HEIGHT)/2;
   this.status.width = CUSTOMIZATION.BALL.WIDTH;
   this.status.height = CUSTOMIZATION.BALL.HEIGHT;
-  this.status.color = "#000000";
+  this.status.color = CUSTOMIZATION.BALL.COLOR;
 }
 Ball.prototype = new initObject();
 Ball.prototype.constructor = Ball;
