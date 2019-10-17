@@ -1,2 +1,8 @@
-# pong-game
-classic ping pong game using socket.io
+# Classic ping pong game
+> but more like Air Hockey :)
+
+## Instruction:
+   - `npm install`
+   - `node app.js`
+    
+
