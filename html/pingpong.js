@@ -1,11 +1,11 @@
 
-  var setting = null;
+  let setting = null;
 
   //create canvas
-  var canvas = document.createElement('canvas');
-  var context = canvas.getContext("2d");
+  let canvas = document.createElement('canvas');
+  let context = canvas.getContext("2d");
 
-  var socket = io();
+  let socket = io();
   //get key event
   $('body').on('keydown', function(e){
     socket.emit('keydown', e.keyCode)
@@ -62,10 +62,10 @@
   }
 
   function drawNet(){
-    var num = 10;
-    var height = setting.HEIGHT/((num+1)*2);
-    var y = height/2;
-    var x = (setting.WIDTH-setting.NET.WIDTH)/2;
+    let num = 10;
+    let height = setting.HEIGHT/((num+1)*2);
+    let y = height/2;
+    let x = (setting.WIDTH-setting.NET.WIDTH)/2;
     context.fillStyle = "#EE82EE";
     while(y < setting.HEIGHT){
         context.fillRect(x,y,setting.NET.WIDTH,height);
