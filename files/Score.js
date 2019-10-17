@@ -1,6 +1,6 @@
 /* keeping track of the score of each player */
 
-const GRID = require("./Grid.js");
+const CUSTOMIZATION = require("./Customization.js");
 let init = function() {
   this.status = {x: 0, y: 0};
 }
@@ -13,15 +13,15 @@ function Score(id,position){
   this.status.color = "#FF0000";
   this.status.font = "Arial";
   this.status.textAlign = "center";
-  this.status.size = GRID.SCORE.SIZE;
+  this.status.size = CUSTOMIZATION.SCORE.SIZE;
   this.status.text = undefined;
-  this.status.y = GRID.SCORE.Y;
+  this.status.y = CUSTOMIZATION.SCORE.Y;
   switch(position){
     case "LEFT":
-      this.status.x = GRID.WIDTH/2-GRID.SCORE.GAP;
+      this.status.x = CUSTOMIZATION.WIDTH/2-CUSTOMIZATION.SCORE.GAP;
       break;
     case "RIGHT":
-      this.status.x = GRID.WIDTH/2+GRID.SCORE.GAP;
+      this.status.x = CUSTOMIZATION.WIDTH/2+CUSTOMIZATION.SCORE.GAP;
       break;
   }
 }

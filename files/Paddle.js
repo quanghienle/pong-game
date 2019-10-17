@@ -2,7 +2,7 @@
 //control the movement of paddles
 //and which player is controlling which paddle
 
-const GRID = require("./Grid.js");
+const CUSTOMIZATION = require("./Customization.js");
 let initObject = function() {
   this.status = {x: 0, y: 0};
 }
@@ -15,16 +15,16 @@ function paddle(id,position){
   var color = "#778899";
   this.role = "paddle";
   this.status.shape = "rectangle";
-  this.status.height = GRID.PLAYER.HEIGHT;
-  this.status.width = GRID.PLAYER.WIDTH;
-  this.status.y = (GRID.HEIGHT-this.status.height)/2;
+  this.status.height = CUSTOMIZATION.PLAYER.HEIGHT;
+  this.status.width = CUSTOMIZATION.PLAYER.WIDTH;
+  this.status.y = (CUSTOMIZATION.HEIGHT-this.status.height)/2;
 
   switch(position){
     case "LEFT":
-      this.status.x = GRID.PLAYER.GAP;
+      this.status.x = CUSTOMIZATION.PLAYER.GAP;
       break;
     case "RIGHT":
-      this.status.x = GRID.WIDTH-GRID.PLAYER.GAP -this.status.width;
+      this.status.x = CUSTOMIZATION.WIDTH-CUSTOMIZATION.PLAYER.GAP -this.status.width;
       break;
   }
   this.status.color = "#778899";
@@ -35,9 +35,9 @@ function paddle(id,position){
 paddle.prototype = new initObject();
 paddle.prototype.constructor = paddle;
 paddle.prototype.update = function(objects){
-  if(this.keypress[UP] && this.status.y - UNIT >= 0 + GRID.BORDER_WIDTH)
+  if(this.keypress[UP] && this.status.y - UNIT >= 0 + CUSTOMIZATION.BORDER_WIDTH)
     this.status.y -= UNIT;
-  if(this.keypress[DOWN] && this.status.y + this.status.height + UNIT <= GRID.HEIGHT - GRID.BORDER_WIDTH)
+  if(this.keypress[DOWN] && this.status.y + this.status.height + UNIT <= CUSTOMIZATION.HEIGHT - CUSTOMIZATION.BORDER_WIDTH)
     this.status.y += UNIT;
 };
 

@@ -2,7 +2,7 @@
 //control movement of the ball
 //bouncing off wall and paddles
 
-const GRID = require("./Grid.js");
+const CUSTOMIZATION = require("./Customization.js");
 let initObject = function() {
   this.status = {x: 0, y: 0};
 }
@@ -18,10 +18,10 @@ function Ball(player0Id, player1Id){
   this.speed = 2;
   this.move = true;
   this.status.shape = "rectangle";
-  this.status.x = (GRID.WIDTH-GRID.BALL.WIDTH)/2;
-  this.status.y = (GRID.HEIGHT-GRID.BALL.HEIGHT)/2;
-  this.status.width = GRID.BALL.WIDTH;
-  this.status.height = GRID.BALL.HEIGHT;
+  this.status.x = (CUSTOMIZATION.WIDTH-CUSTOMIZATION.BALL.WIDTH)/2;
+  this.status.y = (CUSTOMIZATION.HEIGHT-CUSTOMIZATION.BALL.HEIGHT)/2;
+  this.status.width = CUSTOMIZATION.BALL.WIDTH;
+  this.status.height = CUSTOMIZATION.BALL.HEIGHT;
   this.status.color = "#000000";
 }
 Ball.prototype = new initObject();
@@ -40,14 +40,14 @@ Ball.prototype.update = function(objects){
       this.initialize();
     }
     //ball goes to right end
-    if(this.status.x + this.status.width >= GRID.WIDTH + this.status.width*2){
+    if(this.status.x + this.status.width >= CUSTOMIZATION.WIDTH + this.status.width*2){
       objects[this.playerIds[0]].score++;
       this.dx = -Math.abs(this.dx);
       this.initialize();
     }
-    if(this.status.y <= 0 + GRID.BORDER_WIDTH)
+    if(this.status.y <= 0 + CUSTOMIZATION.BORDER_WIDTH)
     this.dy = Math.abs(this.dy);
-    if(this.status.y + this.status.height >= GRID.HEIGHT - GRID.BORDER_WIDTH)
+    if(this.status.y + this.status.height >= CUSTOMIZATION.HEIGHT - CUSTOMIZATION.BORDER_WIDTH)
     this.dy = -Math.abs(this.dy);
 
     //hitting the paddle
@@ -71,8 +71,8 @@ Ball.prototype.update = function(objects){
 };
 
 Ball.prototype.initialize = function(objects){
-  this.status.x = (GRID.WIDTH-GRID.BALL.WIDTH)/2;
-  this.status.y = (GRID.HEIGHT-GRID.BALL.HEIGHT)/2;
+  this.status.x = (CUSTOMIZATION.WIDTH-CUSTOMIZATION.BALL.WIDTH)/2;
+  this.status.y = (CUSTOMIZATION.HEIGHT-CUSTOMIZATION.BALL.HEIGHT)/2;
 };
 
 module.exports = Ball;

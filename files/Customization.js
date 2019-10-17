@@ -1,6 +1,6 @@
 //initialize basic info for the game
 
-const GRID = {
+const CUSTOMIZATION = {
   WIDTH : 600,
   HEIGHT : 400,
   BORDER_WIDTH : 10,
@@ -24,4 +24,4 @@ const GRID = {
   }
 };
 
-module.exports = GRID;
+module.exports = CUSTOMIZATION;
