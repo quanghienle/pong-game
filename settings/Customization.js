@@ -1,6 +1,7 @@
 //initialize basic info for the game
 
 const CUSTOMIZATION = {
+  IP_ADDRESS : "192.168.2.14",
   WIDTH : 600,
   HEIGHT : 400,
   BORDER_WIDTH : 10,
@@ -18,7 +19,7 @@ const CUSTOMIZATION = {
   },
   BALL : {
     SHAPE : "rectangle",
-    SPEED : 2,
+    SPEED : 4,
     WIDTH : 15,
     HEIGHT : 15,
     COLOR : "#000000",
