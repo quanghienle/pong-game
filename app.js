@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 3000;
 const ROOT_DIR = "html";
 const INDEX_PATH = "/pingpong.html";
 
-http.listen(PORT); //start server listening on PORT
+http.listen(PORT, '0.0.0.0'); //start server listening on PORT
 
-const CUSTOMIZATION = require("./files/Customization.js");
+const CUSTOMIZATION = require("./settings/Customization.js");
 
 let playerQueue = new (require('./files/PlayerQueue.js'))(io);
 let playerRoom = new (require('./files/PlayerRoom.js'))(io);

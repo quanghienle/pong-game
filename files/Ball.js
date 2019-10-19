@@ -2,33 +2,37 @@
 //control movement of the ball
 //bouncing off wall and paddles
 
-const CUSTOMIZATION = require("./Customization.js");
+const SETTING = require("../settings/Customization.js");
 let initObject = function() {
   this.status = {x: 0, y: 0};
-}
+};
 
 
 let COLLUSION_TYPE = { NO_COLLUSION: -1, VERTICAL: 1, HORIZONTAL: 2};
+let {SHAPE, COLOR, HEIGHT, WIDTH, SPEED} = SETTING.BALL;
 
+//this is a constructor
 function Ball(player0Id, player1Id){
-  initObject.call(this);
+  //initObject.call(this);
   this.playerIds = [player0Id,player1Id];
   this.dx = 1;
   this.dy = 1;
-  this.speed = 2;
+  this.speed = SPEED;
   this.move = true;
-  this.status.shape = CUSTOMIZATION.BALL.SHAPE;
-  this.status.x = (CUSTOMIZATION.WIDTH-CUSTOMIZATION.BALL.WIDTH)/2;
-  this.status.y = (CUSTOMIZATION.HEIGHT-CUSTOMIZATION.BALL.HEIGHT)/2;
-  this.status.width = CUSTOMIZATION.BALL.WIDTH;
-  this.status.height = CUSTOMIZATION.BALL.HEIGHT;
-  this.status.color = CUSTOMIZATION.BALL.COLOR;
+  this.status = {
+    shape : SHAPE,
+    x : (SETTING.WIDTH - WIDTH)/2,
+    y : (SETTING.HEIGHT - HEIGHT)/2,
+    width : WIDTH,
+    height : HEIGHT,
+    color : COLOR
+  }
 }
+
 Ball.prototype = new initObject();
 Ball.prototype.constructor = Ball;
 Ball.prototype.update = function(objects){
   if(this.move){
-
     //increasing x and y
     this.status.x += this.dx*this.speed;
     this.status.y += this.dy*this.speed;
@@ -40,14 +44,14 @@ Ball.prototype.update = function(objects){
       this.initialize();
     }
     //ball goes to right end
-    if(this.status.x + this.status.width >= CUSTOMIZATION.WIDTH + this.status.width*2){
+    if(this.status.x + this.status.width >= SETTING.WIDTH + this.status.width*2){
       objects[this.playerIds[0]].score++;
       this.dx = -Math.abs(this.dx);
       this.initialize();
     }
-    if(this.status.y <= 0 + CUSTOMIZATION.BORDER_WIDTH)
+    if(this.status.y <= 0 + SETTING.BORDER.WIDTH)
     this.dy = Math.abs(this.dy);
-    if(this.status.y + this.status.height >= CUSTOMIZATION.HEIGHT - CUSTOMIZATION.BORDER_WIDTH)
+    if(this.status.y + this.status.height >= SETTING.HEIGHT - SETTING.BORDER.WIDTH)
     this.dy = -Math.abs(this.dy);
 
     //hitting the paddle
@@ -71,8 +75,8 @@ Ball.prototype.update = function(objects){
 };
 
 Ball.prototype.initialize = function(objects){
-  this.status.x = (CUSTOMIZATION.WIDTH-CUSTOMIZATION.BALL.WIDTH)/2;
-  this.status.y = (CUSTOMIZATION.HEIGHT-CUSTOMIZATION.BALL.HEIGHT)/2;
+  this.status.x = (SETTING.WIDTH - WIDTH)/2;
+  this.status.y = (SETTING.HEIGHT - HEIGHT)/2;
 };
 
 module.exports = Ball;

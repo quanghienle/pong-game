@@ -56,9 +56,10 @@
   }
 
   function drawBorder(){
-    context.fillStyle = "#008080";
-    context.fillRect(0,0,setting.WIDTH,setting.BORDER_WIDTH);
-    context.fillRect(0,setting.HEIGHT-setting.BORDER_WIDTH,setting.WIDTH,setting.BORDER_WIDTH);
+    let {COLOR, WIDTH} = setting.BORDER;
+    context.fillStyle = COLOR;
+    context.fillRect(0,0, setting.WIDTH, WIDTH);
+    context.fillRect(0,setting.HEIGHT-WIDTH, setting.WIDTH, WIDTH);
   }
 
   function drawNet(){
@@ -66,7 +67,7 @@
     let height = setting.HEIGHT/((num+1)*2);
     let y = height/2;
     let x = (setting.WIDTH-setting.NET.WIDTH)/2;
-    context.fillStyle = "#EE82EE";
+    context.fillStyle = setting.NET.COLOR;
     while(y < setting.HEIGHT){
         context.fillRect(x,y,setting.NET.WIDTH,height);
         y += height*2;

@@ -5,6 +5,10 @@ const CUSTOMIZATION = {
   HEIGHT : 400,
   BORDER_WIDTH : 10,
   BACKGROUND_COLOR : "#FFFFFF",
+  BORDER : {
+    WIDTH : 10,
+    COLOR : "#80111E",
+  },
   PLAYER : {
     SHAPE : "rectangle",
     WIDTH : 15,
@@ -14,12 +18,14 @@ const CUSTOMIZATION = {
   },
   BALL : {
     SHAPE : "rectangle",
+    SPEED : 2,
     WIDTH : 15,
     HEIGHT : 15,
     COLOR : "#000000",
   },
   NET : {
-    WIDTH : 6
+    WIDTH : 6,
+    COLOR : "#EE82EE"
   },
   SCORE : {
     Y : 50,
